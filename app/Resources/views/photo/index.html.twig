@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div id="fh5co-main">
+    <div class="fh5co-gallery">
+        <div class="col-lg-offset-1">
+            <h1>Photos list</h1>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Menu</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for photo in photos %}
+                    <tr>
+                        <td><a href="{{ path('photo_show', { 'id': photo.id }) }}">{{ photo.id }}</a></td>
+                        <td>{{ photo.path }}</td>
+                        <td>{{ photo.menu }}</td>
+                        <td>
+                            <a href="{{ path('photo_show', { 'id': photo.id }) }}"><button class="btn btn-success">Voir</button></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{ path('photo_new') }}"><button class="btn btn-info">Ajouter une photo</button></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

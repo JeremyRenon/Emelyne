@@ -1,0 +1,15 @@
+jr\PhotoBundle\Entity\Menu:
+    type: entity
+    table: menu
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            lenght: 100
+    oneToMany:
+        photos:
+            targetEntity: Photo
+            mappedBy: menu

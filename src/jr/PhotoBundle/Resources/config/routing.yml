@@ -1,0 +1,20 @@
+jr_photo_user:
+    resource: "@jrPhotoBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+jr_photo_menu:
+    resource: "@jrPhotoBundle/Resources/config/routing/menu.yml"
+    prefix:   /menu
+
+jr_photo_photo:
+    resource: "@jrPhotoBundle/Resources/config/routing/photo.yml"
+    prefix:   /photo
+
+jr_photo_homepage:
+    path:     /
+    defaults: { _controller: jrPhotoBundle:Default:index }
+
+photo_menu:
+    path:     /{id}/photo_menu
+    defaults: { _controller: "jrPhotoBundle:Default:photo_menu" }
+    methods:  GET

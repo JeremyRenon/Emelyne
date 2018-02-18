@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div id="fh5co-main">
+    <div class="fh5co-gallery">
+        <div class="col-lg-offset-1">
+            <h1>Liste des utilisateurs</h1>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Pseudo</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                {% for user in users %}
+                    <tbody>
+                    <tr>
+                        <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                        <td>{{ user.pseudo }}</td>
+                        <td>
+                            <a href="{{ path('user_show', { 'id': user.id }) }}"><button class="btn btn-success">Voir</button></a>
+
+                            <a href="{{ path('user_edit', { 'id': user.id }) }}"><button class="btn btn-warning">Modifier</button></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+             </table>
+            <a href="{{ path('user_new') }}"><button class="btn btn-info">Créer un utilisateur</button></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

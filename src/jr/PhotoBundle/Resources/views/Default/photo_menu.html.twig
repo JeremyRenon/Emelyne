@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div id="fh5co-main">
+        <div class="fh5co-gallery">
+            {% for photo in photos %}
+                <a class="gallery-item" href="{{ asset('uploads/photos/' ~ photo.path) }}">
+                    <img src="{{ asset('uploads/photos/' ~ photo.path) }}">
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+{% endblock %}

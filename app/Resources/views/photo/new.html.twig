@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div id="fh5co-main">
+    <div class="fh5co-gallery">
+        <div class="col-lg-offset-1">
+            <h1>Ajouter une photo</h1>
+
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input type="submit" class="btn btn-success" value="Ajouter" />
+            {{ form_end(form) }}
+            <a href="{{ path('photo_index') }}"><button class="btn btn-info">Retour à la liste</button></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

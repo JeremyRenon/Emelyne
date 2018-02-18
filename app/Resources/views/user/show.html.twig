@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div id="fh5co-main">
+    <div class="fh5co-gallery">
+        <div class="col-lg-offset-1">
+            <h1>Utilisateur</h1>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Pseudo</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                    <td>{{ user.pseudo }}</td>
+                    <td>
+                        <a href="{{ path('user_edit', { 'id': user.id }) }}"><button class="btn btn-warning">Modifier</button></a>
+                        {{ form_start(delete_form) }}
+                        <input class="btn btn-danger" type="submit" value="Supprimer">
+                        {{ form_end(delete_form) }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <a href="{{ path('user_index') }}"><button class="btn btn-info">Retour à la liste</button></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

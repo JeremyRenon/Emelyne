@@ -1,0 +1,15 @@
+jr\PhotoBundle\Entity\User:
+    type: entity
+    table: user
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        pseudo:
+            type: string
+            lenght: 100
+        password:
+            type: string
+            lenght: 100
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Emelyne Photo{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/css/animate.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/css/icomoon.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/css/bootstrap.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/css/owl.carousel.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/css/owl.theme.default.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/css/style.css') }}">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div id="fh5co-page">
+            <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+                <h1 id="fh5co-logo"><a href="{{ path('jr_photo_homepage') }}">Emelyne Photo</a></h1>
+                <nav id="fh5co-main-menu" role="navigation">
+                    <ul>
+                        <li class="fh5co-active"><a href="{{ path('jr_photo_homepage') }}">Home</a></li>
+
+                        {% for menu in menus %}
+                            <li><a href="{{ path('photo_menu', {'id': menu.id}) }} ">{{ menu.name }}</a></li>
+                        {% endfor %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="{{ path('user_index') }} ">Utilisateur</a></li>
+                            <li><a href="{{ path('menu_index') }} ">Menus</a></li>
+                            <li><a href="{{ path('photo_index') }} ">Photos</a></li>
+                        {% endif %}
+
+                    </ul>
+                </nav>
+            </aside>
+
+
+        {% block body %}{% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('bundles/js/modernizr-2.6.2.min.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
